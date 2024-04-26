@@ -236,7 +236,7 @@ function useSWRV<Data = any, Error = any> (...args): IResponse<Data, Error> {
     const keyVal = keyRef.value
     if (!keyVal) { return }
 
-    const cacheItem = config.cache.get(keyVal)
+    const cacheItem = await config.cache.get(keyVal)
     const newData = cacheItem && cacheItem.data
 
     stateRef.isValidating = true

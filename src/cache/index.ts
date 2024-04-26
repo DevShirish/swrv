@@ -39,7 +39,7 @@ export default class SWRVCache<CacheData> {
     return serializeKeyDefault(key)
   }
 
-  get (k: string): ICacheItem<CacheData> {
+  get (k: string): ICacheItem<CacheData> | Promise<ICacheItem<CacheData>> {
     const _key = this.serializeKey(k)
     return this.items.get(_key)
   }
